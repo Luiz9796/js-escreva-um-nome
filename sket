@@ -1,0 +1,67 @@
+let palavra;
+
+function setup() {
+  createCanvas(500, 500);
+
+  palavra = palavraAleatoria();
+  
+}
+
+
+
+
+
+
+
+
+
+
+//ENGOLE O CHORO E FAZ O L
+function palavraAleatoria() {
+  let palavras = ["engole o choro", "e faz o L"];
+  return random(palavras);
+}
+
+
+
+
+
+
+//CORES
+function inicializaCores() {
+  background("white");
+  fill("black");
+  textSize(50);
+  textAlign(CENTER, CENTER);
+}
+
+
+
+
+
+
+
+
+
+
+//MOUSE E PALAVRAS
+function palavraParcial(minimo, maximo) {
+  let quantidade = map(mouseX, minimo, maximo, 1, palavra.length);
+  let parcial = palavra.substring(0, quantidade);
+  return parcial;
+}
+
+
+
+
+
+
+
+
+//FUNÇÃO DRAW
+function draw() {
+  inicializaCores();
+  let texto = palavraParcial(0, width);
+  text(texto, 200, 200);
+  
+}
